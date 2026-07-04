@@ -11,15 +11,18 @@
     --c-gold:         #d8a559;
     --c-cream:        #f5eee3;
     --c-cream-dim:    rgba(245, 238, 227, 0.72);
+    --c-surface:      #1c1512;
+    --c-surface-2:    #150f0d;
+    --c-surface-hover:#241a15;
 
     --font-display: 'Playfair Display', serif;
     --font-body: 'Poppins', sans-serif;
 
-    --radius-md: 14px;
-    --radius-lg: 24px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
 
-    --shadow-soft: 0 20px 50px rgba(0, 0, 0, 0.45);
-    --shadow-glow: 0 0 0 1px rgba(216, 165, 89, 0.25), 0 20px 45px rgba(193, 87, 28, 0.25);
+    --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.35);
+    --shadow-glow: none;
 
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -36,10 +39,7 @@ html{
 
 body{
     overflow-x: hidden;
-    background:
-        radial-gradient(circle at 15% 0%, rgba(232, 133, 61, 0.18), transparent 45%),
-        linear-gradient(150deg, var(--c-black) 0%, var(--c-black-soft) 32%, var(--c-orange-deep) 72%, var(--c-orange) 100%);
-    background-attachment: fixed;
+    background: var(--c-black);
     color: var(--c-cream);
     font-family: var(--font-body);
     line-height: 1.7;
@@ -93,7 +93,7 @@ button:focus-visible{
     position: sticky;
     top: 0;
     z-index: 100;
-    background: linear-gradient(180deg, var(--c-black) 0%, rgba(10, 8, 7, 0.96) 100%);
+    background: var(--c-black);
     padding: 0 5%;
     display: flex;
     align-items: center;
@@ -115,12 +115,11 @@ button:focus-visible{
     object-fit: cover;
     border-radius: 100%;
     border: 2px solid var(--c-gold);
-    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+    transition: border-color 0.3s ease;
 }
 
 .logo img:hover{
-    transform: scale(1.06) rotate(-2deg);
-    box-shadow: 0 0 22px rgba(216, 165, 89, 0.55);
+    border-color: var(--c-orange-light);
 }
 
 .nav-links{
@@ -147,7 +146,7 @@ button:focus-visible{
     bottom: -2px;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--c-orange-light), var(--c-gold));
+    background: var(--c-orange-light);
     transition: width 0.35s var(--ease);
 }
 
@@ -169,15 +168,16 @@ button:focus-visible{
     font-size: 14px;
     letter-spacing: 0.03em;
     padding: 12px 26px;
-    border-radius: 999px;
-    background: linear-gradient(120deg, var(--c-orange-light), var(--c-orange));
-    box-shadow: 0 10px 25px rgba(193, 87, 28, 0.35);
-    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    border-radius: var(--radius-md);
+    background: var(--c-orange);
+    border: 1px solid var(--c-orange);
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
 .nav-cta:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 14px 30px rgba(193, 87, 28, 0.5);
+    background: var(--c-orange-deep);
+    border-color: var(--c-orange-deep);
+    color: var(--c-cream);
 }
 
 .hamburger{
@@ -204,7 +204,7 @@ button:focus-visible{
     width: 100%;
     max-width: 320px;
     height: 100vh;
-    background: linear-gradient(165deg, var(--c-black) 0%, var(--c-black-soft) 55%, var(--c-orange-deep) 130%);
+    background: var(--c-black-soft);
     transition: right 0.4s var(--ease);
     z-index: 9999;
     box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5);
@@ -255,7 +255,7 @@ button:focus-visible{
 .mobile-menu li{
     margin-bottom: 12px;
     border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--c-surface);
     border: 1px solid rgba(216, 165, 89, 0.15);
     transition: background 0.3s ease, transform 0.3s ease;
 }
@@ -287,21 +287,22 @@ button:focus-visible{
     padding: 14px;
     margin: 10px auto 0;
     text-align: center;
-    background: linear-gradient(120deg, var(--c-orange-light), var(--c-orange));
+    background: var(--c-orange);
     color: var(--c-black);
     font-weight: 600;
     letter-spacing: 0.04em;
-    border: none;
-    border-radius: 999px;
+    border: 1px solid var(--c-orange);
+    border-radius: var(--radius-md);
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 10px 25px rgba(193, 87, 28, 0.35);
-    transition: transform 0.3s var(--ease);
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
 .mobile-menu .apply-btn:hover{
-    transform: translateY(-2px);
+    background: var(--c-orange-deep);
+    border-color: var(--c-orange-deep);
+    color: var(--c-cream);
 }
 
 .follow-us{
@@ -329,7 +330,7 @@ button:focus-visible{
 .social-icons a{
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--c-surface);
     border: 1px solid rgba(216, 165, 89, 0.3);
     border-radius: 50%;
     display: flex;
@@ -339,9 +340,8 @@ button:focus-visible{
 }
 
 .social-icons a:hover{
-    background: linear-gradient(135deg, var(--c-orange-light), var(--c-orange));
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(193, 87, 28, 0.4);
+    background: var(--c-orange);
+    transform: translateY(-2px);
 }
 
 .social-icons i{
@@ -371,11 +371,10 @@ main{
 
 .section-rule{
     display: block;
-    width: 64px;
-    height: 3px;
+    width: 40px;
+    height: 2px;
     margin: 0 auto 22px;
-    background: linear-gradient(90deg, var(--c-orange-light), var(--c-gold));
-    border-radius: 4px;
+    background: var(--c-orange);
 }
 
 /* ---- Hero ---- */
@@ -395,27 +394,10 @@ main{
     max-width: 420px;
 }
 
-.hero-media::before{
-    content: "";
-    position: absolute;
-    inset: -18px;
-    background: radial-gradient(circle, rgba(232, 133, 61, 0.35), transparent 70%);
-    filter: blur(10px);
-    z-index: 0;
-}
-
 #hero-img{
-    position: relative;
-    z-index: 1;
     width: 100%;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-glow);
-    animation: heroPop 1.1s var(--ease) both;
-}
-
-@keyframes heroPop{
-    from{ opacity: 0; transform: scale(0.92) translateY(20px); }
-    to{ opacity: 1; transform: scale(1) translateY(0); }
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
 }
 
 .hero-content h1{
@@ -442,15 +424,16 @@ main{
     font-size: 15px;
     letter-spacing: 0.03em;
     padding: 15px 36px;
-    border-radius: 999px;
-    background: linear-gradient(120deg, var(--c-orange-light), var(--c-orange));
-    box-shadow: 0 15px 35px rgba(193, 87, 28, 0.4);
-    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    border-radius: var(--radius-md);
+    background: var(--c-orange);
+    border: 1px solid var(--c-orange);
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
 .cta:hover{
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 20px 40px rgba(193, 87, 28, 0.55);
+    background: var(--c-orange-deep);
+    border-color: var(--c-orange-deep);
+    color: var(--c-cream);
 }
 
 /* ---- Intro (text + image) ---- */
@@ -482,7 +465,7 @@ main{
 }
 
 .intro-media img:hover{
-    transform: translateY(-6px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-glow);
 }
 
@@ -574,7 +557,6 @@ main{
 .carousel-nav a.active{
     background-color: var(--c-gold);
     transform: scale(1.25);
-    box-shadow: 0 0 10px rgba(216, 165, 89, 0.7);
 }
 
 /* ==========================================================================
@@ -784,7 +766,7 @@ main{
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--c-surface);
     border: 1px solid rgba(216, 165, 89, 0.3);
     color: var(--c-cream);
     font-size: 17px;
@@ -793,10 +775,9 @@ main{
 }
 
 .footer-follow .social-icons a:hover{
-    background: linear-gradient(135deg, var(--c-orange-light), var(--c-orange));
+    background: var(--c-orange);
     color: var(--c-black);
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(193, 87, 28, 0.4);
+    transform: translateY(-2px);
 }
 
 .footer-bottom{
@@ -902,7 +883,7 @@ main{
 }
 
 .service-card{
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--c-surface);
     border: 1px solid rgba(216, 165, 89, 0.18);
     border-radius: var(--radius-lg);
     padding: 36px 28px;
@@ -911,7 +892,7 @@ main{
 }
 
 .service-card:hover{
-    transform: translateY(-8px);
+    transform: translateY(-2px);
     border-color: rgba(216, 165, 89, 0.5);
     box-shadow: var(--shadow-glow);
 }
@@ -944,7 +925,7 @@ main{
     width: 100%;
     max-width: 720px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--c-surface);
     border: 1px solid rgba(216, 165, 89, 0.2);
     border-radius: var(--radius-lg);
     padding: 50px 30px;
@@ -983,7 +964,7 @@ main{
     text-align: center;
     gap: 10px;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--c-surface);
     border: 1px solid rgba(216, 165, 89, 0.18);
     border-radius: var(--radius-lg);
     padding: 34px 20px;
@@ -992,7 +973,7 @@ main{
 }
 
 .contact-card:hover{
-    transform: translateY(-6px);
+    transform: translateY(-2px);
     border-color: rgba(216, 165, 89, 0.5);
     background: rgba(216, 165, 89, 0.08);
     box-shadow: var(--shadow-glow);
@@ -1045,7 +1026,7 @@ main{
     display: flex;
     flex-direction: column;
     gap: 22px;
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--c-surface);
     border: 1px solid rgba(216, 165, 89, 0.18);
     border-radius: var(--radius-lg);
     padding: 36px;
@@ -1076,7 +1057,7 @@ main{
     font-family: var(--font-body);
     font-size: 15px;
     color: var(--c-cream);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--c-surface-2);
     border: 1px solid rgba(216, 165, 89, 0.25);
     border-radius: 10px;
     padding: 14px 16px;
@@ -1093,8 +1074,7 @@ main{
 .form-group textarea:focus{
     outline: none;
     border-color: var(--c-orange-light);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 0 3px rgba(232, 133, 61, 0.18);
+    background: var(--c-surface-hover);
 }
 
 .form-submit{
@@ -1145,7 +1125,7 @@ main{
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--c-surface);
     border: 1px solid rgba(216, 165, 89, 0.3);
     color: var(--c-cream);
     font-size: 19px;
@@ -1154,10 +1134,9 @@ main{
 }
 
 .connect-social .social-icons a:hover{
-    background: linear-gradient(135deg, var(--c-orange-light), var(--c-orange));
+    background: var(--c-orange);
     color: var(--c-black);
-    transform: translateY(-4px);
-    box-shadow: 0 10px 22px rgba(193, 87, 28, 0.4);
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -1203,7 +1182,7 @@ main{
 }
 
 .vm-card{
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--c-surface);
     border: 1px solid rgba(216, 165, 89, 0.18);
     border-radius: var(--radius-lg);
     padding: 38px 30px;
@@ -1211,7 +1190,7 @@ main{
 }
 
 .vm-card:hover{
-    transform: translateY(-6px);
+    transform: translateY(-2px);
     border-color: rgba(216, 165, 89, 0.5);
     box-shadow: var(--shadow-glow);
 }
@@ -1249,7 +1228,7 @@ main{
     padding: 10px 22px;
     border-radius: 999px;
     border: 1px solid rgba(216, 165, 89, 0.35);
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--c-surface);
     font-size: 13.5px;
     letter-spacing: 0.02em;
     color: var(--c-cream-dim);
@@ -1257,10 +1236,9 @@ main{
 }
 
 .value-chips span:hover{
-    background: linear-gradient(120deg, var(--c-orange-light), var(--c-orange));
+    background: var(--c-orange);
     color: var(--c-black);
     border-color: transparent;
-    transform: translateY(-3px);
 }
 
 /* Signature Initiatives */
@@ -1274,28 +1252,17 @@ main{
 
 .initiative-card{
     position: relative;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--c-surface);
     border: 1px solid rgba(216, 165, 89, 0.18);
+    border-top: 3px solid var(--c-orange);
     border-radius: var(--radius-lg);
     padding: 38px 32px;
-    transition: transform 0.4s var(--ease), border-color 0.4s ease;
+    transition: border-color 0.3s ease;
 }
 
 .initiative-card:hover{
-    transform: translateY(-6px);
     border-color: rgba(216, 165, 89, 0.5);
-}
-
-.initiative-card::before{
-    content: "";
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(232, 133, 61, 0.28), transparent 70%);
+    border-top-color: var(--c-orange);
 }
 
 .initiative-card h3{
@@ -1344,7 +1311,7 @@ main{
 }
 
 .testimonial-card{
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--c-surface);
     border: 1px solid rgba(216, 165, 89, 0.18);
     border-radius: var(--radius-lg);
     padding: 32px 28px;
@@ -1352,7 +1319,7 @@ main{
 }
 
 .testimonial-card:hover{
-    transform: translateY(-6px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-glow);
 }
 
@@ -1384,7 +1351,7 @@ main{
 .booking-list span{
     padding: 10px 20px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--c-surface);
     border: 1px solid rgba(216, 165, 89, 0.25);
     font-size: 13.5px;
     color: var(--c-cream-dim);
@@ -1432,7 +1399,7 @@ main{
 }
 
 .image-banner-section img:hover{
-    transform: translateY(-6px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-glow);
 }
 
@@ -1445,7 +1412,7 @@ main{
     justify-content: center;
     gap: 10px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--c-surface);
     border: 2px dashed rgba(216, 165, 89, 0.4);
     border-radius: var(--radius-lg);
     padding: 30px;
